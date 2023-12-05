@@ -3,12 +3,35 @@
     --menu-bar-height: 10px;
 }
 
+.container {
+    width: fit-content;
+    padding: 20px 0;
+}
+
+.container:hover {
+    cursor: pointer; 
+
+    #menu {
+        background-color: transparent;
+    }
+
+    #menu::before {
+        transform: rotate(45deg);
+        transform-origin: top left;
+    }
+
+    #menu::after {
+        transform: rotate(-45deg);
+        transform-origin: bottom left;
+    }
+}
+
 #menu {
     background-color: #D84282;
     position: relative;
     width: var(--menu-bar-width);
     height: var(--menu-bar-height);
-    margin: 100px;
+    transition: background-color 250ms linear;
 }
 
 #menu::before,
@@ -19,6 +42,7 @@
     width: var(--menu-bar-width);
     height: var(--menu-bar-height);
     position: absolute;
+    transition: transform 500ms linear;
 }
 
 #menu::before {
